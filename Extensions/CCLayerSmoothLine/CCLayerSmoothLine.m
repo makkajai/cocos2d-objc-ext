@@ -189,7 +189,7 @@
         CGPoint F = ccpAdd(A, ccpMult(perpendicular, _overdraw));
         CGPoint G = ccpAdd(C, ccpMult(perpendicular, _overdraw));
         CGPoint H = ccpSub(B, ccpMult(perpendicular, _overdraw));
-        CGPoint I = ccpSub(D, ccpMult(perpendicular, _overdraw));
+        CGPoint J = ccpSub(D, ccpMult(perpendicular, _overdraw));
         
         //! end vertices of last line are the start of this one, also for the overdraw
         if (_connectingLine || index > 6)
@@ -199,12 +199,12 @@
         }
         
         _prevG = G;
-        _prevI = I;
+        _prevI = J;
         
         ADD_TRIANGLE(F, A, G, 2.0f);
         ADD_TRIANGLE(A, G, C, 2.0f);
         ADD_TRIANGLE(B, H, D, 2.0f);
-        ADD_TRIANGLE(H, D, I, 2.0f);
+        ADD_TRIANGLE(H, D, J, 2.0f);
     }
     [self fillLineTriangles:vertices count:index withColor:color];
     
